@@ -9,7 +9,16 @@ export default props => {
     console.log('List Data:', props.data);
 
     const listElements =props.data.map((item, index) =>{  //always dom create through maps
-            return <li className="collection-item">{item.title}</li>
+            return( 
+            <li key={index} className="collection-item">
+            <div className="col s10">
+                {item.title}
+            </div>
+            <div className="col s2 right-align">
+                <button onClick={() => {props.delete(index)}} className='btn red darken-2'>Delete</button>
+            </div>
+            </li>
+            )
     });
 
     return(
